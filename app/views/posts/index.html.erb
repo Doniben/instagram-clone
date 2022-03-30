@@ -1,0 +1,8 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="posts" class="">
+    <%= render(PostComponent.with_collection(@posts)) %>
+
+</div>
+
+<%= link_to "New post", new_post_path %>

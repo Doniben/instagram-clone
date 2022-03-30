@@ -1,0 +1,166 @@
+<div id="<%= dom_id profile %>">
+  <div class="flex mx-52 mt-6 items-center border-b-2 border-gray-200 pb-6">
+    <div class="">
+      <%= image_tag profile.avatar, class: 'h-32 w-32 rounded-full bg-white border border-grey mr-3 select-none cursor-pointer' %>
+    </div>
+    <div class="ml-20">
+      <div class="flex items-center">
+        <div class="xl:flex lg:flex md:flex sm:block">
+          <p class="text-2xl text-gray-600 mr-2 xl:mt-0 lg:mt-0 md:mt-0 sm:mb-3 font-medium"><%= profile.username %></p>
+          <% if current_user.profile.username == profile.username %>
+            <%= link_to "Edit Profile", edit_profile_path, class: "border-2 rounded-md border-gray-300 font-semibold text-center text-base px-3 py-2 ml-4 xl:mt-0 lg:mt-0 md:mt-0" %>
+          <% end %>
+        </div>
+        <svg
+          class="ml-4 w-8 h-8"
+          aria-label="Options"
+          fill="#262626"
+          height="24"
+          viewBox="0 0 48 48"
+          width="24"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M46.7 20.6l-2.1-1.1c-.4-.2-.7-.5-.8-1-.5-1.6-1.1-3.2-1.9-4.7-.2-.4-.3-.8-.1-1.2l.8-2.3c.2-.5 0-1.1-.4-1.5l-2.9-2.9c-.4-.4-1-.5-1.5-.4l-2.3.8c-.4.1-.8.1-1.2-.1-1.4-.8-3-1.5-4.6-1.9-.4-.1-.8-.4-1-.8l-1.1-2.2c-.3-.5-.8-.8-1.3-.8h-4.1c-.6 0-1.1.3-1.3.8l-1.1 2.2c-.2.4-.5.7-1 .8-1.6.5-3.2 1.1-4.6 1.9-.4.2-.8.3-1.2.1l-2.3-.8c-.5-.2-1.1 0-1.5.4L5.9 8.8c-.4.4-.5 1-.4 1.5l.8 2.3c.1.4.1.8-.1 1.2-.8 1.5-1.5 3-1.9 4.7-.1.4-.4.8-.8 1l-2.1 1.1c-.5.3-.8.8-.8 1.3V26c0 .6.3 1.1.8 1.3l2.1 1.1c.4.2.7.5.8 1 .5 1.6 1.1 3.2 1.9 4.7.2.4.3.8.1 1.2l-.8 2.3c-.2.5 0 1.1.4 1.5L8.8 42c.4.4 1 .5 1.5.4l2.3-.8c.4-.1.8-.1 1.2.1 1.4.8 3 1.5 4.6 1.9.4.1.8.4 1 .8l1.1 2.2c.3.5.8.8 1.3.8h4.1c.6 0 1.1-.3 1.3-.8l1.1-2.2c.2-.4.5-.7 1-.8 1.6-.5 3.2-1.1 4.6-1.9.4-.2.8-.3 1.2-.1l2.3.8c.5.2 1.1 0 1.5-.4l2.9-2.9c.4-.4.5-1 .4-1.5l-.8-2.3c-.1-.4-.1-.8.1-1.2.8-1.5 1.5-3 1.9-4.7.1-.4.4-.8.8-1l2.1-1.1c.5-.3.8-.8.8-1.3v-4.1c.4-.5.1-1.1-.4-1.3zM24 41.5c-9.7 0-17.5-7.8-17.5-17.5S14.3 6.5 24 6.5 41.5 14.3 41.5 24 33.7 41.5 24 41.5z"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+      </div>
+      <div class="flex mt-2">
+        <div class="px-6 py-3 text-center font-semibold text-lg pl-0">
+          0 <span class="font-normal text-lg">Posts</span>
+        </div>
+        <div class="px-6 py-3 text-center font-semibold text-lg">
+          26 <span class="font-normal text-lg">Followers</span>
+        </div>
+        <div class="px-6 py-3 text-center font-semibold text-lg">
+          6 <span class="font-normal text-lg">Following</span>
+        </div>
+      </div>
+      <div class="text-xl font-semibold mt-2"><%= profile.name %></div>
+      <div class="text-gray-600 mt-2"><%= profile.bio %></div>
+    </div>
+  </div>
+    <!--post icon and title-->
+  <div class="flex flex-row mt-4 justify-center mr-16">
+    <div class="flex text-gray-700 text-center py-2 m-2 pr-5">
+      <div class="flex inline-flex">
+        <button
+          class="border-transparent text-gray-800 rounded-full hover:text-blue-600 focus:outline-none focus:text-gray-600"
+          aria-label="Notifications"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="flex inline-flex ml-2 mt-1">
+        <h3 class="text-sm font-bold text-gray-800 mr-2">POSTS</h3>
+      </div>
+    </div>
+
+    <div class="flex text-gray-700 text-center py-2 m-2 pr-5">
+      <div class="flex inline-flex">
+        <button
+          class="border-transparent text-gray-600 rounded-full hover:text-blue-600 focus:outline-none focus:text-gray-600"
+          aria-label="Notifications"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="flex inline-flex ml-2 mt-1">
+        <h3 class="text-sm font-medium text-gray-700 mr-2">IGTV</h3>
+      </div>
+    </div>
+
+    <div class="flex text-gray-700 text-center py-2 m-2 pr-5">
+      <div class="flex inline-flex">
+        <button
+          class="border-transparent text-gray-600 rounded-full hover:text-blue-600 focus:outline-none focus:text-gray-600"
+          aria-label="Notifications"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex inline-flex ml-2 mt-1">
+        <h3 class="text-sm font-medium text-gray-700 mr-2">SAVED</h3>
+      </div>
+    </div>
+
+    <div class="flex text-gray-700 text-center py-2 m-2 pr-5">
+      <div class="flex inline-flex">
+        <button
+          class="border-transparent text-gray-600 rounded-full hover:text-blue-600 focus:outline-none focus:text-gray-600"
+          aria-label="Notifications"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="flex inline-flex ml-2 mt-1">
+        <h3 class="text-sm font-medium text-gray-700 mr-2">TAGGED</h3>
+      </div>
+    </div>
+  </div>
+
+ <% if current_user.profile.username == profile.username %> 
+  <div class="pt-4 px-5 columns-3">
+    <% @posts.each do |post| %>
+      <div class="flex">
+        <div class="flex-1 text-center px-2 py-2 m-2">
+          <%= image_tag post.images if post.images.attached? do %>
+          <img class="object-cover h-44 w-44 min-h-full min-w-full..." src=<%= image_tag post.images %>>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+

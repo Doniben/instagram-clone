@@ -1,0 +1,44 @@
+<nav class="navbar">
+  <div class="flex justify-between items-center px-52 border-b-2 border-gray-200 bg-white h-16">
+    <div class="flex items-center flex-no-shrink text-black mr-6">
+      <div class="flex-shrink-0 flex flex-row">
+        <%= link_to '', "/", class: "fab fa-instagram block lg:hidden h-8 w-auto text-3xl mr-2" %>
+        <%= link_to image_tag("Instagram_logo_text.svg", class: "hidden lg:block h-8 w-auto"), root_path %>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center justify-center flex-wrap bg-gray-100 text-gray-600 h-7 w-64 border rounded p-1">
+      <%= icon('fas', 'search', class: 'fill-current text-xs mr-1') %>
+      <span class='font-light text-sm ml-1'>Search</span>
+    </div>
+    <div>
+    <%# if user_signed_in? %>
+      <% if signed_in? %>
+        <div class="relative group">
+          <div class="flex items-center cursor-pointer text-sm text-blue border border-white border-b-0  group-hover:border-grey-light rounded-t-lg py-1 px-1">
+            <%= image_tag current_user.profile.avatar, class: 'h-8 w-8 rounded-full bg-white border border-grey mr-3 select-none cursor-pointer' %>
+            <%= current_user.profile.username %>
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+          <div class="items-center absolute border border-t-0 rounded-b-lg p-1 bg-white p-2 invisible group-hover:visible w-full">
+            <%= link_to 'Profile', profile_path(current_user.profile) %>
+            <%#= link_to "Profile", @profile, class: "flex hover:bg-gray-50 px-3 py-2" %>
+            <hr class="border-t mx-2 border-gray-200">
+            <a href="#" class="dropdown-item">Edit Profile</a>
+            <hr class="border-t mx-2 border-gray-200">
+            <%= link_to "Salir", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            <%#= link_to "Salir", destroy_user_session_path, data: {turbo_method: :delete} %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <button class="btn btn-blue">Log In</button>
+        <% end %>
+        <%= link_to new_user_registration_path do %>
+        <%#= link_to "Registrarse", new_user_registration_path do %>
+          <button class="btn btn-white ml-2">Sign Up</button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+

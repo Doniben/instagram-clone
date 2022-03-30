@@ -1,0 +1,16 @@
+<%= form_with(url: comments_path, method: "post") do |form| %>
+
+  <div>
+    <%= form.label :post_id, hidden: true %>
+    <%= form.text_field :post_id, value: @post.id, hidden: true %>
+  </div>
+
+  <div class="bg-slate-100 flex">
+    <%= form.label :content, style: "display: none" %>
+    <%= form.text_area :content, class: 'h-10 p-4 m-0 w-full bg-transparent border-transparent', placeholder: "Add a comment..." %>
+    <div class='w-20 px-5 rounded-r-lg  m-0 text-blue-500 font-bold p-4 pr-1'>
+        <%= form.submit %>
+    </div>
+  </div>
+
+<% end %>
