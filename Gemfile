@@ -84,3 +84,5 @@ gem "devise", "~> 4.8"
 gem "faker", "~> 2.20"
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "stimulus_reflex", "= 3.5.0.pre8"

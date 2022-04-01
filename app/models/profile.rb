@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-    # after_save :create_avatar
+    after_save :create_avatar
 
     belongs_to :user
 

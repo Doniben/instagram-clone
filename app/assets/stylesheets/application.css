@@ -13,14 +13,135 @@
  *= require_tree .
  *= require_self
  */
- @import 'base/index';
- @import 'components/index';
+@import "base/index";
+@import "components/index";
 
 @import "config/fonts";
 @import "config/colors";
- 
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 @import "components/index";
 @import "pages/index";
+
+ /* Starter */
+*:focus {
+  outline: 0 !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9e9e9e;
+  border-radius: 10px;
+}
+
+.turbolinks-progress-bar {
+  background: linear-gradient(
+    #405de6,
+    #405de6,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d,
+    #f56040,
+    #f77737,
+    #fcaf45,
+    #ffdc80
+  );
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: #9e9e9e;
+  cursor: pointer;
+}
+
+/* // Sign-In & Sign-Up Section */
+.mobile {
+  width: 38%;
+}
+
+.mobile-view {
+  left: 32.5%;
+  height: 71%;
+  width: 55%;
+  top: 4.7rem;
+}
+
+.mobile-view img {
+  min-width: 100%;
+  height: 100%;
+}
+
+/* // Posts */
+
+.postData:nth-child(3n) {
+  margin-right: 0;
+}
+
+.postImage::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.postImage img {
+  backdrop-filter: blur(1px);
+}
+
+/* // Media Queries */
+@media (min-width: 1023px) and (max-width: 1439px) {
+  .mobile {
+    width: 46%;
+  }
+
+  .mobile-view {
+    top: 15%;
+    left: 32%;
+    height: 71.8%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  #searchBar {
+    display: none;
+  }
+
+  #editMenu {
+    padding: 4rem 0;
+  }
+
+  .inputField {
+    max-width: 16rem !important;
+  }
+
+  #messageBox {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1023px) {
+  #postCover {
+    height: 35rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 424px) {
+  .postImage {
+    width: 10rem !important;
+    height: 10rem !important;
+  }
+
+  .postData:nth-child(3n) {
+    margin-right: 0.25rem;
+  }
+}
