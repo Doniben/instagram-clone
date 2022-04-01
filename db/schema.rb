@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_24_225314) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_01_150755) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -52,21 +52,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_225314) do
   create_table "follows", force: :cascade do |t|
     t.integer "follower_id", null: false
     t.integer "followed_id", null: false
-    t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["followed_id"], name: "index_follows_on_followed_id"
     t.index ["follower_id"], name: "index_follows_on_follower_id"
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "like_type_type", null: false
-    t.integer "like_type_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["like_type_type", "like_type_id"], name: "index_likes_on_like_type"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -106,7 +95,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_225314) do
   add_foreign_key "comments", "users"
   add_foreign_key "follows", "followeds"
   add_foreign_key "follows", "followers"
-  add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
 end

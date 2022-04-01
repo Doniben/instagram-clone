@@ -7,11 +7,11 @@
       <div class="py-4 px-4 w-full flex justify-between items-center">
         <div class="flex justify-between items-center">
           <div class="mr-4">
-            <% if @post.user.profile.avatar != nil %>
-              <%= image_tag @post.user.profile.avatar, class: "rounded-full w-8 bg-gray-200" %>
-            <% else %>
+            <%# if @post.user.profile.avatar != nil %>
+              <%#= image_tag @post.user.profile.avatar, class: "rounded-full w-8 bg-gray-200" %>
+            <%# else %>
               <%= image_tag 'default_avatar.png', class: "rounded-full w-8 bg-gray-200" %>
-            <% end %>
+            <%# end %>
           </div>
           <div>
             <p class="text-sm font-medium text-gray-800"><%= @post.user.profile.username %></p>
