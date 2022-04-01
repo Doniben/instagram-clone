@@ -1,0 +1,4 @@
+var followBtn = '<%= j render "profiles/follow_btn", profile: @profile %>';
+$("#follow_btn").html(followBtn);
+$("#followers_count").html('<%= @profile.followers_count %>');
+$("#followings_count").html('<%= @profile.followings_count %>');

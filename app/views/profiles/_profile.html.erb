@@ -29,6 +29,20 @@
               fill-rule="evenodd"
             ></path>
           </svg>
+          <% if current_user.profile.username != profile.username %>
+            <%= render 'profiles/follow_btn', profile: @profile %>
+          <% end %>
+        </div>
+        <div class="flex py-4 w-9/12 sm:w-full justify-between">
+          <span class="flex font-medium mr-1"><%= @profile.user.posts.length %><p class="ml-1 text-gray-800 font-normal">posts</p></span>
+          <span class="flex font-medium mr-1">
+            <span id="followers_count"><%= @profile.followers_count %></span>
+            <p class="ml-1 text-gray-800 font-normal">followers</p>
+          </span>
+          <span class="flex font-medium">
+            <span id="followings_count"><%= @profile.user.followings_count %></span>
+            <p class="ml-1 text-gray-800 font-normal">following</p>
+          </span>
         </div>
         <div class="sm:flex mt-2 sm:mt-5">
           <div class="px-6 sm:px-2 py-3 text-center font-semibold md:text-lg sm:text-sm pl-0">
